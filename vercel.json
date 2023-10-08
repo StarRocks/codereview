@@ -1,3 +1,13 @@
 {
-  "github": { "silent": true }
+  "github": { "silent": true },
+    "functions": {
+      "src/pages/api/*.js": {
+        "memory": 3008,
+        "maxDuration": 300
+      },
+      "src/pages/api/*.ts": {
+        "memory": 3008,
+        "maxDuration": 300
+      }
+    }
 }

@@ -1,6 +1,8 @@
-# probot-nextjs-starter
+# StarRocks CodeReview App
 
-Starter template to build GitHub Apps with with [Probot](https://github.com/probot/probot) and [NextJS](https://nextjs.org/).
+## 飞书文档
+
+<https://starrocks.feishu.cn/docx/D70SdBpgFoofHgxJFErc7Dwrnef>
 
 ## Features
 
@@ -10,13 +12,6 @@ Starter template to build GitHub Apps with with [Probot](https://github.com/prob
 - Deploy to Vercel
 
 ## Getting Started
-
-#### Use the template
-
-```sh
-gh repo create <your-app-name> --template maximousblk/probot-nextjs-starter # use the generate button
-cd <your-app-name>
-```
 
 #### Install dependencies
 ```sh
@@ -33,12 +28,7 @@ yarn bot:build
 yarn bot:build
 ```
 
-## Contributing
+## Credit
 
-If you have suggestions for how probot-nextjs-starter could be improved, or want to report a bug, open an issue! We'd love all and any contributions.
-
-For more, check out the [Contributing Guide](CONTRIBUTING.md).
-
-## License
-
-[The MIT License](LICENSE) © 2021 Maximous Black <maximousblk@gmail.com>
+- <https://github.com/anc95/ChatGPT-CodeReview>
+- <https://github.com/maximousblk/probot-nextjs-starter>

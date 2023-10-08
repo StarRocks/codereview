@@ -1,4 +1,5 @@
 import { createNodeMiddleware, createProbot } from 'probot';
-import app from '@/bot';
+
+import { robot as app } from '../../bot';
 
 export default createNodeMiddleware(app, { probot: createProbot(), webhooksPath: '/api/webhooks' });

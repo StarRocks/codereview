@@ -1,5 +1,5 @@
 function HomePage() {
-  return <>Welcome to probot-nextjs-starter!</>;
+  return <>Welcome to StarRocks CodeReviewer</>;
 }
 
 export default HomePage;

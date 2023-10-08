@@ -1,11 +1,11 @@
 {
-  "name": "probot-nextjs-starter",
+  "name": "starrocks-codereview",
   "version": "1.0.0",
   "private": true,
-  "description": "A Probot app using NextJS",
+  "description": "starrocks AI codereviewr",
   "author": "Maximous Black <maximousblk@gmail.com>",
   "license": "MIT",
-  "homepage": "https://github.com/maximousblk/probot-nextjs-starter",
+  "homepage": "https://github.com/StarRocks/codereview",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -16,21 +16,19 @@
     "test": "jest"
   },
   "dependencies": {
+    "@axiomhq/js": "^1.0.0-rc.1",
+    "chatgpt": "^5",
     "next": "^13.2.3",
     "probot": "^12.3.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
-    "@types/jest": "^27.4.1",
     "@types/node": "^18.14.2",
-    "@types/react": "^18.0.28",
+    "@types/react": "^18.2.27",
     "eslint": "8.31.0",
     "eslint-config-next": "13.2.3",
-    "jest": "^27.5.1",
-    "nock": "^13.3.0",
     "smee-client": "^1.2.3",
-    "ts-jest": "^27.1.4",
     "typescript": "^4.9.5"
   },
   "engines": {
