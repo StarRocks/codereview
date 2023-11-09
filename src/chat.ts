@@ -15,7 +15,7 @@ export class Chat {
   }
 
   public generatePrompt = (patch: string) => {
-    const prompt = `Please conduct a code review on the following code. If there are any important and good suggestions, please output them:`;
+    const prompt = process.env.PROMPT || 'please review the following code';
     return `${prompt}:
     ${patch}
     `;
