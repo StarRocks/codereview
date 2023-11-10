@@ -5,7 +5,7 @@ const MAX_PATCH_COUNT = process.env.MAX_PATCH_LENGTH
   : Infinity;
 
 const REVIEW_URL = process.env.REVIEW_URL || '';
-const REVIEW_FILE_NUM = +!process.env.REVIEW_FILE_NUM;
+const REVIEW_FILE_NUM = +(process.env.REVIEW_FILE_NUM || '3');
 
 export const robot = (app: Probot) => {
   app.on('pull_request.opened',
