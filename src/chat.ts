@@ -1,17 +1,9 @@
-import { ChatGPTAPI } from 'chatgpt';
+import { GoogleGenerativeAI } from '@google/generative-ai'
 
 export class Chat {
-  private chatAPI: ChatGPTAPI;
+  private genAI: GoogleGenerativeAI;
   constructor() {
-    this.chatAPI = new ChatGPTAPI({
-      apiKey: process.env.OPENAI_API_KEY || '',
-      apiBaseUrl:'https://api.openai.com/v1',
-      completionParams: {
-        model: process.env.MODEL || 'gpt-3.5-turbo',
-        temperature: 1,
-        top_p: 1,
-      },
-    });
+    this.genAI = new GoogleGenerativeAI(process.env.API_KEY || "");
   }
 
   public generatePrompt = (patch: string) => {
@@ -22,6 +14,9 @@ export class Chat {
   };
 
   public codeReview = async (prompt: string) => {
-    return await this.chatAPI.sendMessage(prompt);
+    const model = this.genAI.getGenerativeModel({ model: "gemini-pro" });
+    const result = await model.generateContent(prompt);
+    const response = await result.response;
+    return response;
   };
 }
