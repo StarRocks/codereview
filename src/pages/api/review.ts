@@ -55,13 +55,23 @@ export default async function handler(req: any, res: any) {
           pull_number,
           commit_id,
           path: filename,
-          body: response.text(),
+          body: response.text,
           position: patch.split("\n").length - 1,
         });
 
-        console.log(pull_number, " : ", filename, " reviewed", "model ", "genai", " prompt length: ", prompt.length, " total tokens: ", 0, "price: ", 0);
+        const total_token = response.detail?.usage?.total_tokens || 0;
+        const prompt_tokens = response.detail?.usage?.prompt_tokens || 0;
+        const completion_tokens = response.detail?.usage?.completion_tokens || 0;
 
-        axiom.ingest('codereview', [{ pr: pull_number, filename: filename, token: 0, price: 0, prompt: prompt, result: response.text() }]);
+        let price = (completion_tokens * 0.002 + prompt_tokens * 0.0015) / 1000;
+        const model = process.env.MODEL || 'gpt-3.5-turbo';
+        if (model === 'gpt-4') {
+          price = (completion_tokens * 0.06 + prompt_tokens * 0.03) / 1000;
+        }
+
+        console.log(pull_number, " : ", filename, " reviewed", "model ", model, " prompt length: ", prompt.length, " total tokens: ", total_token, "price: ", price);
+
+        axiom.ingest('codereview', [{ pr: pull_number, filename: filename, token: total_token, price: price, prompt: prompt, result: response.text }]);
         await axiom.flush();
 
         return res.status(200).json({ message: "Review completed." });
